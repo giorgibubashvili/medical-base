@@ -1,0 +1,118 @@
+.header {
+    position: fixed;
+    width: 100%;
+}
+
+.header_top {
+    display: flex;
+    background-color: rgb(255, 236, 64);
+}
+
+.header_top_logo {
+    margin-right: auto;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+.header_down {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+}
+
+.header_serch {
+    display: flex;
+    margin-right: auto;
+    border: none;
+}
+
+.header_input {
+    width: 200%;
+    padding: 10px;
+    border: none;
+    background-color: rgb(255, 236, 64);
+    border-radius: 10px;
+    outline: none;
+}
+
+
+.search_icon {
+    margin-left: 10px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.search_icon:hover {
+    width: 46px;
+}
+
+.shop_icon {
+    width: 70px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.shop_icon:hover {
+    width: 80px;
+}
+
+.lov_icon {
+    width: 40px;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.lov_icon:hover {
+    width: 42px;
+}
+
+body {
+    background-color: rgb(255, 236, 64);
+}
+
+.registr {
+    border-radius: 10px;
+    border-color: white;
+    cursor: pointer;
+    background-color:  rgb(255, 236, 64);
+    border-style:solid;
+}
+
+.registr:hover {
+    background-color:white;
+    border-style: solid rgb(255, 236, 64);
+}
+
+.registrh {
+    margin-left: 25px;
+    margin-right: 25px;
+    
+}
+
+.avtoriz {
+    margin-left: 40px;
+    margin-right: 50px;
+    border-style: solid;
+    border-color: rgb(255, 236, 64);
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    
+}
+
+.avtoriz:hover {
+    background-color: rgb(255, 236, 64);
+    border-color: white;
+    border-style: solid;
+}
+
+.avtorizh {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.div {
+    padding-top: 200px;
+}
