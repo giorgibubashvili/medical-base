@@ -6,6 +6,9 @@
 .header_top {
     display: flex;
     background-color: rgb(255, 236, 64);
+    padding: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .header_top_logo {
@@ -34,6 +37,8 @@
     background-color: rgb(255, 236, 64);
     border-radius: 10px;
     outline: none;
+    margin-left: 23px;
+    margin-left: 100px;
 }
 
 
@@ -61,7 +66,7 @@
     width: 40px;
     cursor: pointer;
     margin-left: 30px;
-    margin-right: 30px;
+    margin-right: 100px;
 }
 
 .lov_icon:hover {
@@ -73,6 +78,7 @@ body {
 }
 
 .registr {
+    margin-right: 50px;
     border-radius: 10px;
     border-color: white;
     cursor: pointer;
@@ -92,8 +98,6 @@ body {
 }
 
 .avtoriz {
-    margin-left: 40px;
-    margin-right: 50px;
     border-style: solid;
     border-color: rgb(255, 236, 64);
     cursor: pointer;
@@ -115,4 +119,81 @@ body {
 
 .div {
     padding-top: 200px;
+}
+
+.footer {
+    display:flex;
+    flex-wrap: wrap;
+    background-color: white;
+    padding: 20px;
+}
+
+.logo {
+    flex: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.pay {
+    flex: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.pay_icon {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.kontakt {
+    flex: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.fbicon {
+    width: 80px;
+}
+
+.visaicon {
+    width: 60px;
+    flex: auto;
+}
+
+.mastercardicon {
+    width: 100px;
+    flex: auto;
+}
+
+.bogicon{
+    width: 80px;
+    flex: auto;
+}
+
+.menu {
+    padding-top: 170px;
+    margin-left: 80px;
+}
+
+.menu_list {
+    list-style-type: none;
+}
+
+.body {
+    display: flex;
+}
+
+.slider {
+    margin-top: 170px;
+}
+
+.list {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.list:hover {
+    border-radius: 15px;
+    color: orange;
+    background-color: white;
 }
