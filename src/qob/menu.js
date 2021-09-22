@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import './menu.css';
 
 export default class Menu extends React.Component {
     render() {

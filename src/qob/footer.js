@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import './footer.css';
 import fbicon from "../icons/fbicon.png";
 import visaicon from "../icons/visaicon.png";
 import mastercardicon from "../icons/mastercardicon.png";
@@ -6,14 +7,18 @@ import bogicon from "../icons/bogicon.png";
 
 
 export default class Footer extends React.Component {
+
     render() {
 
         return (
+            
             <Fragment>
                 <div className="footer">
                     <div className="logo">
                         <h2>MEDICAL-BASE</h2>
-                        <img className="fbicon" src={fbicon} alt=""></img>
+                        <div className="div_fbicon">
+                            <img className="fbicon" src={fbicon} alt="" onClick="Clicfb"></img>
+                        </div>
                     </div>
                     <div className="pay">
                         <h3>გადახდის მეთოდები</h3>

@@ -1,0 +1,19 @@
+.menu {
+    padding-top: 170px;
+    margin-left: 80px;
+}
+
+.menu_list {
+    list-style-type: none;
+}
+
+.list {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.list:hover {
+    border-radius: 15px;
+    color: gray;
+    background-color: white;
+}

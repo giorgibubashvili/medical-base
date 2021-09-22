@@ -5,10 +5,10 @@
 
 .header_top {
     display: flex;
-    background-color: rgb(255, 236, 64);
+    background-color: rgb(223, 222, 222);
     padding: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .header_top_logo {
@@ -31,16 +31,20 @@
 }
 
 .header_input {
-    width: 200%;
+    width: 60%;
     padding: 10px;
     border: none;
-    background-color: rgb(255, 236, 64);
+    background-color: rgb(223, 222, 222);
     border-radius: 10px;
     outline: none;
     margin-left: 23px;
     margin-left: 100px;
 }
 
+.div_search_icon {
+    width: 45px;
+    height: 30px;
+}
 
 .search_icon {
     margin-left: 10px;
@@ -49,32 +53,41 @@
 }
 
 .search_icon:hover {
-    width: 46px;
+    width: 45px;
+}
+
+.div_shop_icon {
+    width: 80px;
+    height: 30px
 }
 
 .shop_icon {
     width: 70px;
     cursor: pointer;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 .shop_icon:hover {
     width: 80px;
 }
 
+.container_lov_icon {
+    margin-right: 10%;
+}
+
+.div_lov_icon {
+    width: 45px;
+    height: 30px
+}
+
 .lov_icon {
     width: 40px;
     cursor: pointer;
-    margin-left: 30px;
-    margin-right: 100px;
+    margin-left: 20px;
 }
 
 .lov_icon:hover {
-    width: 42px;
-}
-
-body {
-    background-color: rgb(255, 236, 64);
+    width: 45px;
 }
 
 .registr {
@@ -82,13 +95,13 @@ body {
     border-radius: 10px;
     border-color: white;
     cursor: pointer;
-    background-color:  rgb(255, 236, 64);
+    background-color:  rgb(223, 222, 222);
     border-style:solid;
 }
 
 .registr:hover {
     background-color:white;
-    border-style: solid rgb(255, 236, 64);
+    border-style: solid rgb(223, 222, 222);
 }
 
 .registrh {
@@ -99,7 +112,7 @@ body {
 
 .avtoriz {
     border-style: solid;
-    border-color: rgb(255, 236, 64);
+    border-color: rgb(223, 222, 222);
     cursor: pointer;
     background-color: white;
     border-radius: 10px;
@@ -107,7 +120,7 @@ body {
 }
 
 .avtoriz:hover {
-    background-color: rgb(255, 236, 64);
+    background-color: rgb(223, 222, 222);
     border-color: white;
     border-style: solid;
 }
@@ -115,85 +128,4 @@ body {
 .avtorizh {
     margin-left: 25px;
     margin-right: 25px;
-}
-
-.div {
-    padding-top: 200px;
-}
-
-.footer {
-    display:flex;
-    flex-wrap: wrap;
-    background-color: white;
-    padding: 20px;
-}
-
-.logo {
-    flex: auto;
-    display: grid;
-    justify-content: center;
-}
-
-.pay {
-    flex: auto;
-    display: grid;
-    justify-content: center;
-}
-
-.pay_icon {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.kontakt {
-    flex: auto;
-    display: grid;
-    justify-content: center;
-}
-
-.fbicon {
-    width: 80px;
-}
-
-.visaicon {
-    width: 60px;
-    flex: auto;
-}
-
-.mastercardicon {
-    width: 100px;
-    flex: auto;
-}
-
-.bogicon{
-    width: 80px;
-    flex: auto;
-}
-
-.menu {
-    padding-top: 170px;
-    margin-left: 80px;
-}
-
-.menu_list {
-    list-style-type: none;
-}
-
-.body {
-    display: flex;
-}
-
-.slider {
-    margin-top: 170px;
-}
-
-.list {
-    cursor: pointer;
-    padding: 10px;
-}
-
-.list:hover {
-    border-radius: 15px;
-    color: orange;
-    background-color: white;
 }

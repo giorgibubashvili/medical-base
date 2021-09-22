@@ -1,0 +1,15 @@
+.legend {
+    display: flex;
+    background-color: cyan;
+}
+.legenddiv {
+    background-color: darkgoldenrod;
+    display: flex;
+}
+
+.container {
+    background-color: darkgreen;
+    width: 500px;
+    height: 200px;
+    display: flex;
+}

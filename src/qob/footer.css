@@ -1,0 +1,59 @@
+.footer {
+    display:flex;
+    flex-wrap: wrap;
+    background-color: white;
+    padding: 20px;
+}
+
+.logo {
+    flex: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.pay {
+    flex: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.pay_icon {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.kontakt {
+    flex: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.div_fbicon {
+    width: 100px;
+}
+
+.fbicon {
+    width: 80px;
+    cursor: pointer;
+    background-color: red;
+}
+
+.fbicon:hover {
+    border-style: solid white;
+    width: 85px;
+}
+
+.visaicon {
+    width: 60px;
+    flex: auto;
+}
+
+.mastercardicon {
+    width: 100px;
+    flex: auto;
+}
+
+.bogicon{
+    width: 80px;
+    flex: auto;
+}

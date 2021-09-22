@@ -24,13 +24,19 @@ export default class Heder extends React.Component {
                     <div className="header_down">
                         <input className="header_input" placeholder="ძიება..."/>
                         <div className="header_serch">
-                            <img className="search_icon" src={searchicon} alt="" /> 
+                            <div className="div_search_icon">
+                                <img className="search_icon" src={searchicon} alt="" /> 
+                            </div>
                         </div>
                         <div>
-                            <img className="shop_icon" src={shopicon} alt="" />
+                            <div className="div_shop_icon">
+                                <img className="shop_icon" src={shopicon} alt="" />
+                            </div>
                         </div>
-                        <div>
-                            <img className="lov_icon" src={lovicon} alt="" />
+                        <div className="container_lov_icon">
+                            <div className="div_lov_icon">
+                                <img className="lov_icon" src={lovicon} alt="" />
+                            </div>
                         </div>
                     </div>
                 </div>
