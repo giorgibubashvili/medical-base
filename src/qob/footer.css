@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     background-color: white;
     padding: 20px;
+    border-radius: 10px;
 }
 
 .logo {
@@ -35,7 +36,6 @@
 .fbicon {
     width: 80px;
     cursor: pointer;
-    background-color: red;
 }
 
 .fbicon:hover {

@@ -1,9 +1,7 @@
 .produkt_container {
-    margin-top: 170px;
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(232,222,222);
-    padding-right: 5%;
+    background-color: rgb(223,222,222);
 }
 
 .produkt {
@@ -32,7 +30,7 @@
 
 .shopicon {
     width: 50px;
-    height: min-content;
+    height: 25px;
     margin-top: 50%;
     cursor: pointer;
 }
@@ -51,10 +49,13 @@
     background-color: red;
     border-radius: 50%;
     text-align: center;
+    color: white;
 }
 
 .product_name {
     text-align: center;
+    text-decoration: none;
+    color: black;
 }
 
 .product_raodenoba {
@@ -88,4 +89,9 @@
 
 .fasi_aris{
     margin-left: auto;
+}
+
+.produqcia_p {
+    margin-left: 20px;
+    height: 20px;
 }

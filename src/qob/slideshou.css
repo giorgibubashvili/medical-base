@@ -1,15 +1,17 @@
-.legend {
-    display: flex;
-    background-color: cyan;
-}
-.legenddiv {
-    background-color: darkgoldenrod;
-    display: flex;
+.slimg {
+    width: 60%;
+    height: 400px;
 }
 
-.container {
-    background-color: darkgreen;
-    width: 500px;
-    height: 200px;
-    display: flex;
+.slide {
+    /* box-shadow: 20px 20px 8px 0 rgb(0 0 0 / 75%); */
+    margin-left: 20px;
+    max-width: 950px;
+}
+.thumbs-wrapper.axis-vertical{
+    display: none;
+}
+
+.carousel-status {
+    display: none;
 }

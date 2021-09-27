@@ -1,37 +1,26 @@
 import shavixel from "../icons/shavixel.jpg";
 import lurjixel from "../icons/lurjixel.jpg";
-//var React = require('react');
-//var ReactDOM = require('react-dom');
-//var Carousel = require('react-responsive-carousel').Carousel;
+import lovicon from "../icons/lovicon.jpg";
 import React, { Fragment } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import './slideshou.css';
 
 export default class DemoCarousel extends React.Component {
-//var DemoCarousel = React.CreateClass({
+    
     render() {
         return (
           <Fragment>
-            <Carousel showArrows={true} className="container"/* onClickItem={onClickItem} onClickThumb={onClickThumb}*/>
-                <div className="legenddiv">
-                    {/* <img src={shavixel} /> */}
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div className="legenddiv">
-                    {/* */}
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div className="legenddiv">
-                    {/* <img src="assets/3.jpeg" /> */}
-                    <p className="legend">Legend 3</p>
-                </div>
+                <Carousel  className="slide"  infiniteLoop="true" autoPlay="true" autoPlayHoverPause="true" >
+                    <img className="slimg" src={shavixel} alt="" />
+                    <img className="slimg" src={lurjixel} alt="" />
+                    <img className="slimg" src={lovicon} alt="" />
                 </Carousel>
-                <Carousel>
-                <img src={shavixel} />
-                <img src={lurjixel} /> 
-                </Carousel>
+                {/* <div className="container">
+                    
+                </div> */}
+
           </Fragment>
         );
     }
 };
-//ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));

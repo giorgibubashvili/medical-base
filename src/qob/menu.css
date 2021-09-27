@@ -1,6 +1,5 @@
 .menu {
-    padding-top: 170px;
-    margin-left: 80px;
+    z-index: 1;
 }
 
 .menu_list {
