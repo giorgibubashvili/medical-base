@@ -45,7 +45,6 @@
 
 .header_serch {
     display: flex;
-    margin-right: 10%;
     border: none;
 }
 
@@ -84,7 +83,6 @@
     width: 70px;
     height: 40px;
     cursor: pointer;
-    margin-left: 10px;
 }
 
 .shop_icon:hover {

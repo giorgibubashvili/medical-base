@@ -40,6 +40,24 @@
     border-radius: 10px;
     padding: 10px;
     margin-left: 10px;
+    cursor: pointer;
+    text-align: center;
+    height: min-content;
+}
+
+.boot_pay_cont {
+    display: flex;
+}
+
+.shek {
+    visibility: hidden;
+    position:absolute;
+    margin-top: -300px;
+    margin-left: 20%;
+    justify-content: center;
+    background-color: rgba(223, 222, 222, 0.938);
+    box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 75%);
+    border-radius: 10px;
 }
 
 .cart_boot_pay:hover {
@@ -55,4 +73,10 @@
 .cart_product_name {
     text-decoration: none;
     color: black;
+}
+
+.send_shek {
+    color: green;
+    margin-left: 20px;
+    visibility: hidden;
 }

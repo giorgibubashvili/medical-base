@@ -3,8 +3,19 @@ import "./shoppingcart.css";
 import { Link } from "@reach/router";
 import shavixel from "../icons/shavixel.jpg";
 import lurjixel from "../icons/lurjixel.jpg";
+import Shekveta from "./shekveta";
+// constructor(props){
+//     super(props);
+//     this.state = { counter: 1 };
+// };
+
+function shekveta() {
+    document.getElementById("shek").style.visibility = "visible";
+    
+};
 
 export default class ShoppingCart extends React.Component {
+
     render() {
         
         return (
@@ -78,12 +89,15 @@ export default class ShoppingCart extends React.Component {
                     <hr/>
                     <div className="cart_boot_div">ტრანსპორტირება<div className="cart_boot_div_r">ლ1</div></div>
                     <hr/>
-                    <div className="cart_boot_div">შეფუთვის ღირებულება<div className="cart_boot_div_r">ლ0.5</div></div>
+                    <div className="cart_boot_div">დანაზოგი<div className="cart_boot_div_r">ლ0.5</div></div>
                     <hr/>                   
                     <div className="cart_boot_div">სულ ჯამი<div className="cart_boot_div_r">ლ9.5</div></div>                   
                     <hr/>
-                    <div className="cart_boot_pay">ყიდვა</div>
-                    
+                    <div className="boot_pay_cont">
+                        <div className="cart_boot_pay" onClick={shekveta}>შეკვეთა</div>
+                        <p id="send_shek" className="send_shek">თქვენი შეკვეთა წარმატებით გაიგზავნა, დაგიკავშირდებით უახლოეს მომავალში.</p>
+                    </div>
+                    <div id="shek" className="shek"><Shekveta /></div>
                 </div> 
             </Fragment>
         )

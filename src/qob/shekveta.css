@@ -1,0 +1,39 @@
+.clos_buut {
+    text-align: center;
+    cursor: pointer;
+}
+
+.shek_buut {
+    justify-content: center;
+    display: flex;
+}
+
+.shek_buut_name {
+    height: min-content;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-color: rgb(223, 222, 222);
+    background-color: rgb(223, 222, 222);
+    width: min-content;
+}
+
+.in {
+    outline: none;
+}
+
+.shek_buut_name:hover {
+    border-color: white;
+    background-color: white;
+}
+.qalaqi {
+    display: block;
+    width: 100%;
+}
+
+.qalaqi_div {
+    position: absolute;
+    width: 100%;
+}

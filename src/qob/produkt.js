@@ -49,6 +49,7 @@ let prc =100 / (dzf / (dzf - axf));
                                 <h4 className="fasi_iyo">ლ{dzf}</h4>
                                 <h3 className="fasi_aris">ლ{axf}</h3>
                         </div>
+                        <div  className="prod_button" ><h3>კალათაში დამატება</h3></div>
                     </div>
                      <div className="produkt">
                     <div className="product">

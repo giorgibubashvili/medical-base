@@ -13,6 +13,7 @@
 
 .list:hover {
     border-radius: 15px;
-    color: gray;
-    background-color: white;
+    /* color: gray;
+    background-color: white; */
+    background-image: linear-gradient(to right,gray,white);;
 }

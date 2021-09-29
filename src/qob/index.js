@@ -8,6 +8,9 @@ import ProdDet from "./prod_det.js";
 import ShoppingCart from "./shoppingcart.js";
 
 export default class Qob extends React.Component {
+
+
+
     render() {
 
         return (
@@ -19,7 +22,8 @@ export default class Qob extends React.Component {
                     <Body path="/" />
                     <ProdDet path="/produkt" />
                 </Router>
-                <Footer />  
+                
+                <Footer /> 
             </Fragment>
         )
     }

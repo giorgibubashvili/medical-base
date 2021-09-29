@@ -95,3 +95,19 @@
     margin-left: 20px;
     height: 20px;
 }
+
+.prod_button {
+    background-color: rgb(223,222,222);
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    text-align: center;
+    cursor: pointer;
+}
+
+.prod_button:hover {
+    border-color: gray;
+    background-color: gray;
+    box-shadow: 1px 1px 8px 0 rgb(0 0 0 / 75%);
+    color:white;
+}
