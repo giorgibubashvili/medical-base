@@ -6,23 +6,22 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import './slideshou_det.css';
 
-export default class DemoCarouselDet extends React.Component {
+const DemoCarouselDet = () => {
     
-    render() {
-        return (
-          <Fragment>
-                <Carousel  className="slide_det" >
+  return (
+    <Fragment>
+      <Carousel  className="slide_det" >
                   {/* infiniteLoop="true" autoPlay="true" autoPlayHoverPause="true" */}
-                  
-                    <img className="sldetimg" src={shavixel} alt="" />
-                    <img className="sldetimg" src={lurjixel} alt="" />
-                    <img className="sldetimg" src={lovicon} alt="" />
-                </Carousel>
+        <img className="sldetimg" src={shavixel} alt="" />
+        <img className="sldetimg" src={lurjixel} alt="" />
+        <img className="sldetimg" src={lovicon} alt="" />
+      </Carousel>
                 {/* <div className="container">
                     
                 </div> */}
 
-          </Fragment>
-        );
-    }
+    </Fragment>
+  );    
 };
+
+export default DemoCarouselDet;

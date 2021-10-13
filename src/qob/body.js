@@ -4,20 +4,30 @@ import Menu from "./menu";
 import Produkt from "./produkt";
 import DemoCarousel from "./slideshow";
 
-export default class Body extends React.Component {
-    render() {
+const Body = (props) => {
 
-        return (
-            <Fragment>
-                <div className="body">
-                    <Menu />
-                    
-                    <div className="body_div">
-                        <DemoCarousel />
-                        <Produkt />
+    const product = props.onprod.map((key) => {
+        return(
+            <Produkt onprod={key} onaddproduktcart={props.onaddCartProdukt} />
+        )
+    });
+
+    return (
+        <Fragment>
+            <div className="body">
+                <Menu />        
+                <div className="body_div">
+                    <DemoCarousel />
+                    <div className="produqcia_p">
+                        <h3 >პროდუქცია</h3>
+                    </div>
+                    <div className="produkt_container">
+                         {product}
                     </div>
                 </div>
-            </Fragment>
-        )
-    }
+            </div>
+        </Fragment>
+    )
+   
 }
+export default Body;

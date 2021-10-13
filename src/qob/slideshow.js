@@ -6,10 +6,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import './slideshou.css';
 
-export default class DemoCarousel extends React.Component {
+const DemoCarousel = () => {
     
-    render() {
-        return (
+    return (
           <Fragment>
                 <Carousel  className="slide"  infiniteLoop="true" autoPlay="true" autoPlayHoverPause="true" >
                     <img className="slimg" src={shavixel} alt="" />
@@ -21,6 +20,7 @@ export default class DemoCarousel extends React.Component {
                 </div> */}
 
           </Fragment>
-        );
-    }
+    );
 };
+
+export default DemoCarousel;

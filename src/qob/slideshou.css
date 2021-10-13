@@ -6,9 +6,9 @@
     /* box-shadow: 20px 20px 8px 0 rgb(0 0 0 / 75%); */
     width: 400px;
 }
-.thumbs-wrapper.axis-vertical{
+/* .thumbs-wrapper.axis-vertical{
     display: none;
-}
+} */
 
 .carousel-status {
     display: none;

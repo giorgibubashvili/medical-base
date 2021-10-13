@@ -1,12 +1,10 @@
 import React, { Fragment } from "react";
 import './menu.css';
 
-export default class Menu extends React.Component {
-    render() {
-
-        return (
-            <Fragment>
-                <div className="menu">
+const Menu =() => {
+    return (
+        <Fragment>
+            <div className="menu">
                 <ul className="menu_list" >
                     <li className="list">
                         <b className="list_text">სამედიცინო ხელთათმანი</b>
@@ -18,8 +16,9 @@ export default class Menu extends React.Component {
                         <b className="list_text">სამედიცინო ნევსი</b>
                     </li>
                 </ul>
-                </div>
-            </Fragment>
-        )
-    }
+            </div>
+        </Fragment>
+    )    
 }
+
+export default Menu;

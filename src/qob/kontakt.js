@@ -1,15 +1,13 @@
 import React, { Fragment } from "react";
 import "./kontakt.css";
 
-export default class Kontakt extends React.Component {
+const Kontakt = () => {
 
-    render() {
-
-        return (
+    return (
             
-            <Fragment>
-                <div className="konta">
-                    <div>
+        <Fragment>
+            <div className="konta">
+                <div>
                     <table className="table">
                         <thead>
                             <tr >
@@ -30,9 +28,11 @@ export default class Kontakt extends React.Component {
                             </tr>
                         </tbody>
                     </table>
-                    </div>
                 </div>
-            </Fragment>
-        )
-    }
+            </div>
+        </Fragment>
+    )
+    
 }
+
+export default Kontakt;

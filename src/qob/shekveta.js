@@ -20,16 +20,16 @@ function qalaqi() {
     document.getElementById("tbilisi").type = "button";
 };
 
- function archqal() {
-    document.getElementById("qalaqi").value=12;
+ function archqal(val) {
+     console.log(val);
+    document.getElementById("qalaqi").value=val.target.defaultValue;
     document.getElementById("qutaisi").type = "hidden";
     document.getElementById("tbilisi").type = "hidden";
 };
 
-export default class Shekveta extends React.Component {
+const Shekveta = () => {
     
-    render() {
-        return (
+    return (
             <Fragment>
                 <div className="Shekveta">
                     <div onClick={closshek} className="clos_buut">დახურვა</div>
@@ -51,6 +51,7 @@ export default class Shekveta extends React.Component {
                     
                 </div>
             </Fragment>
-        )
-    }
+    )
 }
+
+export default Shekveta;
