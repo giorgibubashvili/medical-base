@@ -1,0 +1,110 @@
+.proddettop{
+    display: flex;
+    font-size: larger;
+    padding: 10px;
+}
+.update{
+    margin-left: auto;
+    margin-right: 20px;
+    background-color: blue;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* visibility: hidden; */
+}
+.update:hover{
+    color: white;
+}
+.delete{
+    /* visibility: hidden; */
+    background-color: red;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: min-content;
+}
+.delete:hover{
+    color: white;
+}
+.change{
+    background-color: green;
+    width: min-content;
+    border-radius: 5px;
+    padding: 10px;
+    visibility: hidden;
+    cursor: pointer;
+}
+.change:hover{
+    color: white;
+}
+.changeimg{
+    background-color: green;
+    width: max-content;
+    border-radius: 5px;
+    padding: 10px;
+    visibility: hidden;
+    cursor: pointer;
+}
+.changeimg:hover{
+    color: white;
+}
+.proddetbuttom{
+    display: flex;
+}
+.imagedet{
+    width: 250px;
+    height: 250px;
+    background-color: yellowgreen;
+}
+.img{
+    width: 60px;
+    height: 60px;
+    visibility: hidden;
+}
+.imginput{
+    visibility: hidden;
+    cursor: pointer;
+}
+.deldiv{
+    background-color: rgba(0, 0, 255, 0.884);
+    color: white;
+    position: absolute;
+    width: max-content;
+    visibility: hidden;
+    margin:auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+.delbut{
+    display: flex;
+}
+.yes{
+    background-color: green;
+    color: #000;
+    text-decoration:none;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 40%;
+    cursor: pointer;
+    margin:auto;
+}
+.yes:hover{
+    color: white;
+}
+.no{
+    background-color: red;
+    color: #000;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5%;
+    cursor: pointer;
+    margin:auto;
+}
+.no:hover{
+    color: white;
+}
+.inp{
+    background-color: white;
+    border: none;
+    width: min-content;
+}

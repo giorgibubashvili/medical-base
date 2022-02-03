@@ -20,7 +20,7 @@ const Footer = () => {
                         </Link>
                     </Route>
                     </div>
-                </div>
+                </div> 
                 <div className="pay">
                     <h3>გადახდის მეთოდები</h3>
                     <div className="pay_icon">

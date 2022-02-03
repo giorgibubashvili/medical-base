@@ -1,22 +1,13 @@
-import React from "react";
-import Qob from "./qob";
+import Medical from "./medical_base/index.js";
 
-class App extends React.Component {
-  constructor(props){
-    super(props);
 
-    this.state = {
-      items: [],
-    };
-  }
+function App() {
 
-  render() {
-    return (
-      <React.Fragment>
-        <Qob /> 
-      </React.Fragment>
-    );
-  }
+  return (
+    <div>
+      <Medical />
+    </div>
+  );
 }
 
 export default App;

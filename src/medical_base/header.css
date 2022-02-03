@@ -1,0 +1,194 @@
+.header{
+    position: sticky;
+    top: 0;
+}
+.header_top{
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    font-size: 30px;text-decoration: none;
+}
+.header_down{
+    background-color: rgb(79, 155, 241);
+    padding: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+}
+.headertitle{
+    text-decoration: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:#000;
+    font-style: italic;
+}
+.signin{
+    background-color: rgb(6, 75, 68);
+    width: min-content;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.signin:hover{
+    color: white;
+}
+.signinbut{
+    background-color: rgb(6, 75, 68);
+    width: min-content;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: auto;
+}
+.signinbut:hover{
+    color: white;
+}
+.registr{
+    background-color: rgb(6, 75, 68);
+    width: min-content;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.registr:hover{
+    color: white;
+}
+.sign{
+    /* visibility: hidden; */
+    top:50px;
+    overflow: hidden;
+    position: relative;
+    width: min-content;
+    background-color: rgb(10, 128, 116);
+    padding: 10px;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: currentColor;
+}
+.signd{
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    background-color: rgba(101, 214, 248, 0.575);
+    animation-fill-mode:forwards;
+    animation-duration: 1s;
+}
+@keyframes cddc{
+    100% {
+        top: 0;
+    }
+}
+.inpu{
+    background-color: rgb(151, 224, 247);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 5px 2px rgb(0 0 0 / 75%);;
+}
+.close{
+    background-color: rgb(6, 75, 68);
+    width: min-content;
+    padding: 5px;
+    border-radius: 50%;
+    margin-left: auto;
+    cursor: pointer;
+    color: red;
+}
+.close:hover{
+    background-color: red;
+    color: white;
+}
+.couriers{
+    text-align: center;
+}
+.courier{
+    margin: auto;
+    text-align: center;
+}
+.courierbut{
+    background-color: rgb(150, 150, 150);
+    text-decoration: none;
+    color:#000;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: auto;
+    cursor: pointer;
+}
+.courierbut:hover{
+    color: white;
+}
+.table{
+    width: 100%;
+    padding: 20px;
+    border-spacing: 5%;
+    text-align: left;
+}
+.newcourier{
+    background-color: green;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+}
+.newcourier:hover{
+    color: white;
+}
+.courierprop{
+    margin: auto;
+}
+.courierchange{
+    background-color: blue;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.courierchange:hover{
+    color: white;
+}
+.courierdel{
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: auto;
+    cursor: pointer;
+}
+.courierdel:hover{
+    color: white;
+}
+.pas{
+    visibility: hidden;
+    background-color: white;
+    border: none;
+}
+#inpmailp{
+    text-align: center;
+}
+.shop_icn{
+    margin-left: auto;
+}
+.shop_icon{
+    width: 80px;
+    height: 50px;  
+}
+.shop_icon:hover{
+    width: 100px;
+    height: 50px;
+}
+.shoppicon{
+    background-color: red;
+    border-radius: 50%;
+    margin-bottom: auto;
+    padding: 5px;
+}
+.shop_div{
+    display: flex;
+    justify-content: space-between;
+}
+
+

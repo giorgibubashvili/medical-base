@@ -1,0 +1,18 @@
+.product{
+    background-color: rgb(79, 155, 241);
+    width: min-content;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 1px 1px 10px 5px rgb(0 0 0 / 75%);
+}
+.image{
+    display: block;
+    width: 250px;
+    height: 300px;
+    background-color: rgb(218, 238, 188);
+}
+.productsdiv{
+    flex-wrap: wrap;
+    display: flex;
+}
