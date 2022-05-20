@@ -50,9 +50,10 @@ const Admin = (props) => {
     // }
 
     const Save = async () =>{
-        const response = await api.post("/product", {title, size, price, color, manufacturer, amount},{headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
+        // const response = await
+        api.post("/product", {title, size, price, color, manufacturer, amount},{headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
         //console.log(localStorage.getItem("access_token"));
-        console.log(response);
+        // console.log(response);
         hid();
         props.onad();
     }
@@ -66,6 +67,11 @@ const Admin = (props) => {
             document.getElementById("admin").style.visibility = "visible";
         }
     }
+
+    // if(localStorage.getItem("status") === "courier"){
+    //     document.getElementById("add").style.visibility = "visible";
+    // }
+    // console.log(localStorage.getItem("status"));
 
     return(
         <Fragment>

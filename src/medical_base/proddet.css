@@ -10,7 +10,7 @@
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 .update:hover{
     color: white;
@@ -54,7 +54,13 @@
 .imagedet{
     width: 250px;
     height: 250px;
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
+    
+}
+.imagedett{
+    width: 250px;
+    height: 250px;
+    /* background-color: aqua; */
 }
 .img{
     width: 60px;
@@ -107,4 +113,7 @@
     background-color: white;
     border: none;
     width: min-content;
+}
+#daamate_fasdakleba, #airchie_fasdakleba, #delete, #delpoto{
+    visibility: hidden;
 }

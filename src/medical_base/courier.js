@@ -60,11 +60,22 @@ const Courier = () => {
         const resp = await api.get("/cities");
         //console.log(resp);
         setcity(resp.data.cities_list);
+        if(localStorage.getItem("status") === "admin"){
+            // console.log(0)
+         document.getElementById("shekvetebi_button").style.visibility = "visible";
+         document.getElementById("add").style.visibility = "visible";
+         document.getElementById("daamate_curierad").style.visibility = "visible";
+         document.getElementById("daamate_qalaqi").style.visibility = "visible";
+        //  document.getElementById("daamate_kurieri").style.visibility = "visible";
+        //  document.getElementById("washale_qalaqidan").style.visibility = "visible";
+        //  document.getElementById("washale_curieridan").style.visibility = "visible";
+     }
     }
 
     const addcity = async () => {
-        const response = await api.post("/city", {name, delivery_price}, {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
-        console.log(response);
+        // const response = await 
+        api.post("/city", {name, delivery_price}, {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
+        // console.log(response);
         addcouriers();
         Couriers();
     }
@@ -74,7 +85,7 @@ const Courier = () => {
         Couriers();
     },[]);
 
-    const cities = city.map((_key) => {
+    const cities = city.map((_key, ind) => {
         //console.log(_key);
         const delet = async (idi) =>{
             //console.log(idi);
@@ -87,23 +98,25 @@ const Courier = () => {
 
        const addcouriercity = async () => {
            let city_id = _key.id;
-           console.log(courier_id, city_id);
-            const res = await api.post("/city_courier", {city_id, courier_id}, {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
-            console.log(res.data);
+        //    console.log(courier_id, city_id);
+            // const res = await 
+            api.post("/city_courier", {city_id, courier_id}, {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
+            // console.log(res.data);
             addcouriers();
             Couriers();
         }
 
         const removecouriercity = async (courier_id) => {
             let city_id = _key.id;
-            console.log(city_id, courier_id);
-            const res = await api.delete("/city_courier", {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}, data: {city_id:city_id,  courier_id:courier_id}});
-            console.log(res.data);
+            // console.log(city_id, courier_id);
+            // const res = await 
+            api.delete("/city_courier", {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}, data: {city_id:city_id,  courier_id:courier_id}});
+            // console.log(res.data);
             addcouriers();
             Couriers();
          }
 
-       const courier = _key.couriers.map((cour) => {
+       const courier = _key.couriers.map((cour, index) => {
            const remove = () => {
                //setcourier_id(); 
                removecouriercity(cour.user.id);
@@ -113,37 +126,80 @@ const Courier = () => {
                delet(cour.user.id);
            }
 
+        //    if(localStorage.getItem("status") === "admin"){
+        //         console.log(int);
+        //         // document.getElementById(int+"qalaqi").style.visibility = "hidden";
+        //         // document.getElementById(int+"qalaqi").style.visibility = "visible";
+        // //  document.getElementById(int+"curier").style.visibility = "visible";
+        //     // document.getElementsByClassName("Courierdel").style.visibility = "visible";
+        //     }else{
+        //         document.getElementById(int+"qalaqi").style.visibility = "hidden";
+        //     }
+    
+
            return(
-               <tr className="couriers" key={cour.user.id}>
+               <tr className="couriers" key={"qurie" + index} >
                     <td className="courier">{cour.user.name}</td>
                     <td className="courier">{cour.user.surname}</td>
                     <td className="courier">{cour.user.telephone}</td>
                     <td className="courier">{cour.user.email}</td>
-                    <td className="courierdel" onClick={remove}  >წაშლა ქალაქიდან</td>
-                    <td className="courierdel" onClick={delete_courier}>წაშლა კურიერიდან</td>
+                    <td className={"qalaqi"}  > 
+                        <div className="courierdel" onClick={remove}>წაშლა ქალაქიდან</div>
+                        <div className="courierdel" onClick={delete_courier}>წაშლა კურიერიდან</div> 
+                    </td>
+                    {/* <td id={int+"curier"}  className="courierdel"></td> */}
                 </tr> 
            )
        })
+
+    //    if(localStorage.getItem("status") === "admin"){
+    //        let cnt = cour.length;
+    //        while(cnt--){
+    //            console.log(cnt);
+    //             document.getElementById(cnt +"qalaqi").style.visibility = "visible";
+    //         //    cnt--;
+    //        }
+        
+        // document.getElementById(int+"qalaqi").style.visibility = "hidden";
+        //
+//  document.getElementById(int+"curier").style.visibility = "visible";
+    // document.getElementsByClassName("Courierdel").style.visibility = "visible";
+    // }
+//else{
+//         let cnt = cour.length;
+//         while(cnt--){
+//             document.getElementById(cnt+"qalaqi").style.visibility = "hidden";
+//             console.log(cnt+"k");
+//             cnt--;
+//         }
+//         // document.getElementById(cnt+"qalaqi").style.visibility = "hidden";
+//     }
 
     //    const Couriers = async () => {
     //        const res = await api.get("/couriers");
     //         setcour(res.data.couriers_list);
     //        //console.log(res);
     //     }    
-           const courier_list = cour.map((idi) => {
+           const courier_list = cour.map((idi, index) => {
                //console.log(_key.user.id);
                return(
-                <option value={idi.user.id + " " + idi.user.name + " " + idi.user.surname} ></option>
+                <option key={"curierlist"+index} >{idi.user.id + " " + idi.user.name + " " + idi.user.surname}</option>
                )
-           })
-    
+           });
+
+           if(localStorage.getItem("status") === "admin"){
+            let cnt = document.getElementsByClassName("daamate_kurieri").length;
+        while (cnt--){
+            document.getElementsByClassName("daamate_kurieri")[cnt].style.visibility = "visible";
+        }   
+    }
 
         return(
             <Fragment >
-                <tbody key={_key.id} >
+                <tbody key={"kurier"+ind} >
                     <tr>
-                        <td>{_key.name}</td>
-                        <td>{_key.delivery_price} ლარი</td >
+                        <th colSpan={5} style={{backgroundColor:"rgb(79, 155, 241)"}}>{_key.name}</th>
+                        {/* <td>{_key.delivery_price} ლარი</td > */}
                     </tr>
                     <tr>
                     <th className="courier">სახელი</th>
@@ -152,16 +208,18 @@ const Courier = () => {
                     <th className="courier">მაილი</th>
                 </tr>
                     {courier}
-                    <tr>
+                    <tr className="daamate_kurieri" style={{visibiliti:"hidden"}}>
+                        <th></th>
                         <th className="courier">+</th>
                         <th> 
-                            <input list="couriers" onChange={Courid} placeholder="კურიერი" />
-                            <datalist id="couriers" >
+                            {/* <input list="couriers" placeholder="კურიერი" /> */}
+                            <select onChange={Courid}  id="couriers" >
                                 {/* <option value="gio" ></option>
                                 <option value="nika" ></option>
                                 <option value="ale" ></option>  */}
+                                <option>აირჩიე კურიერი</option>
                                 {courier_list}
-                            </datalist>
+                            </select>
                             
                         </th>
                         <th onClick={addcouriercity}>დაამატე კურიერი</th>
@@ -171,10 +229,17 @@ const Courier = () => {
         )
     })
 
-    return(
+    if(localStorage.getItem("status") === "admin"){
+            let cnt = document.getElementsByClassName("qalaqi").length;
+        while (cnt--){
+            document.getElementsByClassName("qalaqi")[cnt].style.visibility = "visible";
+        }   
+    }
+    // return null
+    return (
   
         <Fragment>
-            <div className="courierprop">
+            <div className="courierprop" id="daamate_curierad">
                 <div style={{margin:"auto", display:"flex"}} >
 
                     <input id="inpmail" className="inpu" onChange={Email} placeholder="მაილი" type="email"></input>
@@ -187,15 +252,14 @@ const Courier = () => {
             
             <table className="table">
             <thead>
-                <tr>
-                        <th>ქალაქი</th>
-                        <th>მიწოდების საფასური</th>
+                <tr >
+                        <th colSpan={5}>ქალაქი</th>
+                        {/* <th>მიწოდების საფასური</th> */}
                     </tr>
             </thead>
             {cities} 
-            <tbody>
-                
-                <tr>
+            <tbody >
+                <tr id="daamate_qalaqi">
                     <th>+</th>
                     <th><input onChange={Name} placeholder="ქალაქი" /></th>
                     <th><input onChange={Deliver} placeholder="მიწოდების საფასური" /></th>

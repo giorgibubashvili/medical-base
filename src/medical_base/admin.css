@@ -4,7 +4,7 @@
     background-color: rgba(128, 128, 128, 0.5);
     visibility: hidden;
     position: fixed;
-    z-index: 2;
+    z-index: 10;
 }
 .add{
     height: 50px;
@@ -21,14 +21,16 @@
     padding-left: 10px;
     padding-right: 10px;
     visibility: hidden;
+    z-index: 9;
 }
 .new_pr{
-    visibility: hidden;
+    /* visibility: hidden; */
     position: absolute;
     background-color: rgb(31, 215, 248);
     margin: auto;
     padding: 10px; 
     border-radius: 10px;
+    z-index: 10;
 }
 .hid,.save{
     margin-top: 10px;

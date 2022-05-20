@@ -19,9 +19,10 @@ const Footer = () => {
                             <img className="fbicon" src={fbicon} alt="" ></img>
                         </Link>
                     </Route>
+                    <div id="fb-root"></div>
                     </div>
                 </div> 
-                <div className="pay">
+                 <div className="pay">
                     <h3>გადახდის მეთოდები</h3>
                     <div className="pay_icon">
                         <img className="visaicon" src={visaicon} alt=""></img>
