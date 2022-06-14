@@ -1,9 +1,11 @@
 .footer {
     display:flex;
     flex-wrap: wrap;
-    background-color: rgb(79, 155, 241);
+    background-color: rgb(125, 178, 239);
     padding: 20px;
     border-radius: 10px;
+    /* min-width: 600px; */
+    text-align: center;
 }
 
 .logo {
@@ -35,13 +37,15 @@
 }
 
 .fbicon {
-    width: 80px;
+    width: 150px;
     cursor: pointer;
+    border: 5px solid white;
+    border-radius: 5px;
 }
 
 .fbicon:hover {
     border-style: solid white;
-    width: 85px;
+    width: 140px;
 }
 
 .visaicon {

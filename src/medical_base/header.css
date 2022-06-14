@@ -7,14 +7,17 @@
     display: flex;
     padding: 10px;
     background-color: white;
-    font-size: 30px;text-decoration: none;
+    font-size:large;
+    text-decoration: none;
+    /* min-width: 600px; */
 }
 .header_down{
-    background-color: rgb(79, 155, 241);
-    padding: 20px;
+    background-color: rgb(125, 178, 239);
+    padding: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     display: flex;
+    /* min-width: 600px; */
 }
 .headertitle{
     text-decoration: none;
@@ -23,13 +26,27 @@
     font-style: italic;
 }
 .signin{
-    background-color: rgb(38, 97, 165);
+    background-color: rgb(93, 153, 222);
     width: min-content;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
     margin-left: auto;
     margin-right: 20px;
+    
+}
+@media screen and (max-width: 500px) {
+    .signin{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .header_down{
+        flex-direction: column;
+    }
+    .registr{
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 .signin:hover{
     color: white;
@@ -46,7 +63,7 @@
     color: white;
 }
 .registr{
-    background-color: rgb(38, 97, 165);
+    background-color: rgb(93, 153, 222);
     width: min-content;
     padding: 10px;
     border-radius: 10px;
@@ -87,14 +104,26 @@
     background-color: rgb(151, 224, 247);
     border-radius: 10px;
     padding: 10px;
-    margin: 10px auto;
+    margin: auto;
     outline: none;
     border: none;
     box-shadow: 1px 1px 5px 2px rgb(0 0 0 / 75%);;
     display: block;
 }
+.input{
+    background-color: rgb(151, 224, 247);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 5px 2px rgb(0 0 0 / 75%);;
+    display: block;
+    width: 50px;
+}
+
 .close{
-    background-color: rgb(38, 97, 165);
+    background-color: rgb(93, 153, 222);
     width: min-content;
     padding: 5px;
     border-radius: 50%;
@@ -108,13 +137,16 @@
 }
 .couriers{
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 .courier{
     margin: auto;
     text-align: center;
+    
 }
 .courierbut{
-    background-color: rgb(38, 97, 165);
+    background-color: rgb(93, 153, 222);
     text-decoration: none;
     color:#000;
     padding: 10px;
@@ -126,18 +158,19 @@
     color: white;
 }
 .table{
-    width: 100%;
+    /* width: 100%;
     padding: 20px;
-    border-spacing: 5%;
-    text-align: left;
+    border-spacing: 5%; */
+    text-align: center;
 }
 .newcourier{
-    background-color: rgb(38, 97, 165);
+    background-color: rgb(93, 153, 222);
     border-radius: 10px;
     cursor: pointer;
     padding: 10px;
     text-align: center;
     margin: auto;
+    width: fit-content;
 }
 .newcourier:hover{
     color: white;
@@ -177,8 +210,8 @@
     display: flex;
 }
 .shop_icon{
-    width: 60px;
-    height: 60px; 
+    width: 40px;
+    height: 40px; 
 }
 /* .shop_icon:hover{
     width: 70px;
@@ -187,13 +220,13 @@
 .shoppiconn{
     background-color: rgb(79, 155, 241);
     font-size:smaller;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     padding-bottom: 5px;
     position: absolute;
     border-radius: 50%;
     text-align: center;
-    margin-left: 35px;
+    margin-left: 20px;
 }
 /* .shoppicon{
     width: 10px;
@@ -211,6 +244,7 @@
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    /* min-width: 721px; */
 }
 ul{
     background-color: rgb(190, 196, 193);
@@ -267,9 +301,22 @@ table{
     display:flex;
     align-items: center;
     text-align: center;
+    justify-content: center;
+    background-color: rgb(151, 224, 247);
+    width: 30px;
+    height: 30px;
+    border-radius: 20%;
 }
-.increm input{
+.increm:hover{
+    color:white;
+    cursor: pointer;
+}
+.increm_input{
     text-align: center;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    width: fit-content;
 }
 #shekvetebi_button, #daamate_curierad, #update, #daamate_qalaqi, .qalaqi, .daamate_kurieri{
     visibility: hidden;
@@ -301,18 +348,108 @@ td, tr, th, input{
     box-shadow: currentColor;
 }
 .slid{
-    width: 900px;
+    width: 750px;
     height: 300px;
+    object-fit:contain;
+}
+.sld{
+    justify-content: center;
+    align-items: center;
+    display: block;
 }
 .slide{
-    justify-content: center;
     margin: 10px;
-    width: 900px;
+    width: 750px;
     height: 300px;
+    border: 10px solid rgb(79, 155, 241);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 5px rgb(0 0 0 / 75%);
 }
+/* @media screen and (max-width: 750px) {
+    table{
+
+    }
+} */
+/* @media screen and (max-width: 597px) {
+    body{
+        min-width: 850px;
+    }
+    .slid{
+        width: 350px;
+        height: 200px;
+    }
+    .slide{
+        width: 350px;
+        height: 200px;
+    }
+} */
 .shekvetis_sia{
     margin-left: 20px;
 }
+body{
+    /* display: flex;
+    width: 100%;
+    height: 100%; */
+    min-width: 300px;
+    /* background-image: linear-gradient( #72c2f1 50%, #7de9ff 100%); */
+    /* justify-content: center; */
+}
+.thumbs-wrapper{
+    display: none;
+    /* width: 350px;
+    height: 100px; */
+}
+.control-dots{
+    display: none;
+}
+.slide {
+    border: none;
+    padding: 0;
+    height: 250px;
+    width: 250px;
+}
+.title{
+    text-decoration: none;
+    color: #000;
+}
+.serch_list{
+    background-color: rgb(93, 153, 222);
+}
+.serch_li:hover{
+    background-color: aqua;
+}
+.search_list{
+    background-color: rgb(93, 153, 222);
+    position: absolute;
+    overflow-y: auto;
+    height: 300px;
+}
+
+.search_list::-webkit-scrollbar{
+    height: 20px;
+}
+.search_list::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+.search_list::-webkit-scrollbar-thumb{
+    background-color: rgb(32, 129, 239); 
+    border-radius: 10px;
+}
+.search_list::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(21, 66, 246);
+}
+.serch_li:hover{
+    background-color: rgb(246, 100, 21);
+}
+
+/* .title:hover{
+    text-decoration: wavy;
+} */
+/* .increm{
+    background-color: aqua;
+    width: min-content;
+} */
 /* input{
     background-color: rgb(79, 155, 241);
     border: none;

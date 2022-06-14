@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Fragment, useEffect } from "react";
 import api from "../server_api/api";
 import { Link } from "react-router-dom";
-import { Fade } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Zoom } from 'react-slideshow-image';
+// import 'react-slideshow-image/dist/styles.css';
 import clos  from "../icons/clos.jpg";
 
 const Shop = (props) => {
@@ -78,13 +80,14 @@ const Shop = (props) => {
         shopping();
     }
 
-    const update = async (product_id, quantity) => {
-        const resp = await api.put("/basket/" + (localStorage.getItem("basket_title")), {product_id : product_id, quantity : quantity});
-        console.log(resp);
-        setshoping(resp.data.basket.products);
-        setsale (resp.data.basket.total_cost);
-        setsum(resp.data.basket.saving_amount);
-    }
+    // const update = async (product_id, quantity) => {
+    //     console.log(quantity);
+    //     const resp = await api.put("/basket/" + (localStorage.getItem("basket_title")), {product_id : product_id, quantity : quantity});
+    //     console.log(resp);
+    //     setshoping(resp.data.basket.products);
+    //     setsale (resp.data.basket.total_cost);
+    //     setsum(resp.data.basket.saving_amount);
+    // }
 
     useEffect( () => {
         shopping();
@@ -94,22 +97,25 @@ const Shop = (props) => {
         // const resp = await 
         api.post("/order", {basket_title: localStorage.getItem("basket_title"), customer_name: name, customer_address: addres, customer_telephone: tel, nearest_city_id: city_id, customer_comment: coment});
         // console.log(resp);
+        localStorage.setItem("basket_title", "")
         document.getElementById("win_shekveta").style.visibility="hidden ";
         document.getElementById("sheukvetep").style.visibility="visible";
         document.getElementById("win_shekveta").style.animationName="";
+        document.getElementById("sheukvetep").style.animationName="cddc";
     }
 
     const cartprodd = shoping.map((ke, index) => {
     // console.log(ke)
+    // let value_input = ke.quantity;
 
     const Potos = ke.images.map((idi, ind) => {
         // console.log(idi.img);
         // setprice_id(id i.id);
         // price_id = idi.id;
         return(
-            <Link to={`/product/${ke.id}`} key={ind} >
-                <img className="imagedet" src={"data:image/png;base64,"+idi.img} alt="" key={idi.id} id={idi.id}/> 
-            </Link>
+            // <Link to={`/product/${ke.id}`} key={ind+"product_shop"} >
+                <img className="imagedet" src={idi.img} alt=""   /> 
+            // {/* </Link> */}
          
         )
     }) 
@@ -118,16 +124,40 @@ const Shop = (props) => {
             del(ke.id);
         }
 
-        const upd = (value) => {
+        const update = async (product_id, quantity) => {
+        // console.log(quantity);
+        const resp = await api.put("/basket/" + (localStorage.getItem("basket_title")), {product_id : product_id, quantity : quantity});
+        console.log(resp);
+        setshoping(resp.data.basket.products);
+        setsale (resp.data.basket.total_cost);
+        setsum(resp.data.basket.saving_amount);
+    }
+
+        const upd = async (value) => {
             // console.log(value);
-            // let k = 2;
-            // document.getElementById(value.target.id).value = Math.abs(Math.round(document.getElementById(value.target.id).value)) ;
-            // if(document.getElementById(value.target.id).value === "0"){
-            //     document.getElementById(value.target.id).value = "1";
-            // }
+           update(value.target.id, value.target.value)
             
-            update(value.target.id, value.target.value);
         }
+        const plus = () => {
+            document.getElementById(ke.id).value++;
+            update(ke.id, document.getElementById(ke.id).value);
+            // console.log(document.getElementById(ke.id).value)
+
+        }
+        
+        const minus = () => {
+            if(document.getElementById(ke.id).value > 1){
+                document.getElementById(ke.id).value --;
+            }
+            update(ke.id, document.getElementById(ke.id).value);
+        }
+
+        // const link_det = (v) => {
+        //     console.log(v)
+        //     return(
+        //         <Link to={`/product/${ke.id}`} key={index+"product_shop"}>giorgi</Link>
+        //     )
+        // }
 
         // const increment = () =>{
         //     document.getElementById("increminp").value = Number(document.getElementById("increminp").value) + 1;
@@ -144,31 +174,38 @@ const Shop = (props) => {
         // console.log(ke.quantity * ke.price);
 
         return(
-            <tr key={index} >
+            <div key={index+"product_shop1"} style={{display:"flex", flexWrap:"wrap", justifyContent:"space-around", alignItems:"center"}}>
             {/* <td>foto</td> */}
-            <td style={{padding:"20px", alignContent:"center", width:"250px"}}>
-                <Fade className="imagedett" style={{justifyContent:"center"}}>
+            <div style={{padding:"20px", alignContent:"center", width:"250px"}}>
+             {/* <Link to={`/product/${ke.id}`} key={index+"product_shop"} > */}
+                <Carousel className="imagedett" style={{justifyContent:"center",}}>
                         {Potos}
-                </Fade>
-            </td>
-            <td> <h3 >{ke.title}</h3> </td>
-            <td style={{justifyContent:"center"}}>
-                <div className="increm" style={{justifyContent:"center"}}>
-                    {/* <div><h2 onClick={decrement} >-</h2></div> */}
-                    <div style={{justifyContent:"center"}}><input type="number" value={ke.quantity} id={ke.id} onChange={upd}/></div>
-                    {/* <div><h2 onClick={increment} >+</h2></div> */}
+                </Carousel>
+                {/* </Link> */}
+            </div>
+            <div> <h3 >
+                <Link to={`/product/${ke.id}`} key={index+"product_shop"} className="title"  >
+                    {ke.title}
+                </Link>
+                 </h3> 
+            </div>
+            <div style={{justifyContent:"center"}}>
+                <div className="increm_input" style={{justifyContent:"center"}}>
+                    <div onClick={minus} className="increm">-</div>
+                    <div style={{justifyContent:"center"}}><input className="input" value={ke.quantity} id={ke.id} onChange={upd}/></div>
+                    <div onClick={plus}  className="increm">+</div>
                 </div>
-            </td>
-            <td>
+            </div>
+            {/* <div>
                 <h3 >{ke.final_price}</h3>
-            </td>
-            <td>
+            </div> */}
+            <div>
                 <h3 >{ke.final_total_cost}</h3>
-            </td>
-            <td>
+            </div>
+            <div>
                 <img onClick={delpr} style={{cursor:"pointer",width:"20px", height:"20px"}} src={clos} alt=""/>
-            </td>
-        </tr>
+            </div>
+        </div>
         ) 
     });
 
@@ -187,7 +224,7 @@ const Shop = (props) => {
             <div >
                     <h2 style={{paddingLeft:"20px"}}>საყიდლების კალათი</h2>
                     <hr/>
-                    <table >
+                    {/* <table >
                         <thead>
                             <tr >
                                 <th>პროდუქტის ფოტო</th>
@@ -198,10 +235,10 @@ const Shop = (props) => {
                                 <th>წაშლა</th>
                             </tr>
                         </thead>
-                        <tbody >
+                        <tbody > */}
                             {cartprodd}
-                        </tbody>
-                    </table>
+                        {/* </tbody>
+                    </table> */}
                     <hr/>
                     <div className="shop_div">პროდუქტები<div >{sum + sale} &#8382; </div></div>
                     <hr/>
@@ -210,7 +247,7 @@ const Shop = (props) => {
                     <div className="shop_div">სულ ჯამი<div>{sale} &#8382;</div></div>                   
                     <hr/>
                     <div >
-                        <div className="signinbut" onClick={sheukvete} >შეკვეთა</div>
+                        <div className="signinbut"  onClick={sheukvete} >შეკვეთა</div>
                         <div id="win_shekveta" className="windou_shekveta">
                             <div className="windou2_shekveta">
                                 <div className="close" onClick={clos_shek}>X</div>

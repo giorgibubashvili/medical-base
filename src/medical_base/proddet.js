@@ -2,16 +2,16 @@ import React, { Fragment, useEffect, useState } from "react";
 import api from "../server_api/api";
 import { Link } from "react-router-dom";
 import "./proddet.css";
-// import { Carousel } from "react";
-import { Fade } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Fade } from 'react-slideshow-image';
+// import 'react-slideshow-image/dist/styles.css';
 
 const Proddet = (props) => {
 
-
     const get_data = async () => {
         const response = await api.get(window.location.pathname);
-        //  console.log(response);
+        console.log(window.location   );
         settitle(response.data.title);
         setsize(response.data.size);
         setprice(response.data.price);
@@ -77,11 +77,13 @@ const Proddet = (props) => {
     const [potos, setpotos] = useState([]);
     const [delid, setdelid] = useState();
     const Potos = potos.map((idi, ind) => {
-        // console.log(idi.img);
+        // console.log(idi.id);
         // setprice_id(id i.id);
         // price_id = idi.id;
+    
+
         return(
-         <img className="imagedet" src={"data:image/png;base64,"+idi.img} alt="" key={ind} id={idi.id}/> 
+         <img className="imagedet" src={idi.img} alt="" key={"img"+ind} name={idi.id} /> 
         )
     }) 
 
@@ -91,15 +93,15 @@ const Proddet = (props) => {
 
     const Potoid = (ev) => {
         // console.log(ev);
-        setimg(ev.target.src);
-        setdelid(ev.target.id);
+        // console.log(potos[ev])
+        setimg(potos[ev].img);
+        setdelid(potos[ev].id);
     }
 
     const Delpoto = async () =>{
         // console.log(delid);
-        // const req = await 
-        api.delete(window.location.pathname + "/remove_image/"+delid,{headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
-        // console.log(req);
+        const req = await api.delete(window.location.pathname + "/remove_image/"+delid,{headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
+        console.log(req);
     }
 
     // const [image, setimage] = useState([]);
@@ -326,12 +328,24 @@ const Proddet = (props) => {
     const [quantity, setquantity] = useState([1]);
 
     const inp = (v) =>{
-        document.getElementById("prodinpraod").value = Math.abs(Math.round(document.getElementById("prodinpraod").value)) ;
-                if(document.getElementById("prodinpraod").value === "0"){
-                    document.getElementById("prodinpraod").value = "1";
-                }
+        // document.getElementById("prodinpraod").value = Math.abs(Math.round(document.getElementById("prodinpraod").value)) ;
+        //         if(document.getElementById("prodinpraod").value === "0"){
+        //             document.getElementById("prodinpraod").value = "1";
+        //         }
         setquantity(v.target.value);
     }   
+
+    const plus = () => {
+        document.getElementById("prodinpraod").value ++;
+        setquantity(document.getElementById("prodinpraod").value);
+    }
+    
+    const minus = () => {
+        if(document.getElementById("prodinpraod").value > 1){
+            document.getElementById("prodinpraod").value --;
+        }
+        setquantity(document.getElementById("prodinpraod").value);
+    }
 
     // if(localStorage.getItem("status") === "admin"){
     //     console.log(localStorage.getItem("status"))
@@ -369,14 +383,9 @@ const Proddet = (props) => {
                     <div className="proddetbuttom"> 
                     <div>
                         <div >
-                        {/* <img className="imagedet" src={image} alt="" /> */}
-                        {/* <Carousel> */}
-                            
-                        {/* </Carousel> */}
-                        <Fade className="imagedett" onClick={Potoid}>
+                        <Carousel className="imagedett"  onClickItem={Potoid} name="gio">
                             {Potos}
-                        </Fade>
-                            
+                        </Carousel>
                         </div>
                         <div >
                             <img id="img" className="img" src={img} alt=""/>
@@ -397,12 +406,16 @@ const Proddet = (props) => {
                             <div>ზომა: <input id="size" className="inp" onChange={Size} type="button" defaultValue={size} /> </div>
                             <div>ფერი: <input id="color" className="inp" onChange={Color} type="button" defaultValue={color} /></div>
                             <div>მწარმოებელი: <input id="manufacturer" className="inp" onChange={Manufacturer} type="button" defaultValue={manufacturer} /></div>
-                            <div>რაოდენობაშია: <input id="amount" className="inp" onChange={Amount} type="button" defaultValue={amount} />ცალი</div>
+                            <div>რაოდენობა: <input id="amount" className="inp" onChange={Amount} type="button" defaultValue={amount} />ცალი</div>
                             <div>ფასი: <input id="price" className="inp" onChange={Price} type="button" defaultValue={price} /> &#8382;</div>
                             {/* <div>ფასდაკლება</div> */}
                             <div>{Discou}</div>
                             <div id="change" className="change" onClick={Change}>შენახვა</div> 
-                            <input type="number" defaultValue={1} onChange={inp} id="prodinpraod" />
+                            <div className="increm_input">
+                                <div onClick={minus} className="increm">-</div>
+                                <input className="input" defaultValue={1} onChange={inp} id="prodinpraod" />
+                                <div onClick={plus} className="increm">+</div>
+                            </div>
                             <div className="newcourier" onClick={shop}>დაამატე კალათაში</div> 
                         </div>
 

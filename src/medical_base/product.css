@@ -1,5 +1,5 @@
 .product{
-    background-color: rgb(79, 155, 241);
+    background-color: rgb(125, 178, 239);
     width: min-content;
     margin: 10px;
     border-radius: 10px;
@@ -15,4 +15,17 @@
 .productsdiv{
     flex-wrap: wrap;
     display: flex;
+    justify-content:space-evenly;
+    max-width: 900px;
+}
+.produktsdiv{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content:center;
+    width: 100%;
+}
+@media screen and (max-width: 887px) {
+    .productsdiv{
+        max-width: 600px;
+    }
 }

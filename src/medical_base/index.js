@@ -28,14 +28,14 @@ const Medical = () => {
     }
 
 const [products, setproducts] = useState([]); 
-// const [cnt, setcnt] = useState(); 
-// console.log(cnt);
+const [user_status, setuser_status] = useState("user"); 
+
     const addproduct = async () => {
         const resp = await api.get("/products");
         setproducts(resp.data.product_list);
     }
     const prod = products.map((_key, cnt) => {
-            return(<Product key={cnt} value={_key} shop_cnt={shopping}/>)
+            return(<Product key={"prod"+cnt} value={_key} shop_cnt={shopping}/>)
         })
 
     useEffect( () => { 
@@ -48,20 +48,26 @@ const [products, setproducts] = useState([]);
 
     return(
          <Fragment>
-            <Admin onad={addproduct}/>
+             <div>
+                 <Admin onad={addproduct}/>
             <Router>
-                <Header onad={addproduct} cnt={cnt} />
-                    {/* <Fade className="slide" autoplay="none">
+                <Header onad={addproduct} cnt={cnt} user_status={user_status} setuser_status={setuser_status} />
+                    
+                <Switch>
+                    <Route exact path="/" >
+                        <div className="produktsdiv">
+                            {/* <div className="sld">
+                        <Fade className="slide">
                         <img className="slid" src={slide1} alt=""/>
                         <img className="slid" src={slide2} alt=""/>
                         <img className="slid" src={slide3} alt=""/>
                         <img className="slid" src={slide4} alt=""/>
                         <img className="slid" src={slide5} alt=""/>
-                    </Fade> */}
-                
-                <Switch>
-                    <Route exact path="/" >
-                        <div className="productsdiv">{prod} </div>
+                    </Fade>
+                    </div> */}
+                            <div className="productsdiv">{prod} </div>
+                        </div>
+                        
                     </Route>
                     <Route path={"/product/:id"} >
                         <Proddet onad={addproduct} shop_cnt={shopping} />
@@ -78,6 +84,8 @@ const [products, setproducts] = useState([]);
                 </Switch>    
             </Router> 
             <Footer/>
+             </div>
+            
         </Fragment> 
     )
 };

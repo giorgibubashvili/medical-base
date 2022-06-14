@@ -2,10 +2,12 @@ import React, { Fragment } from "react";
 import './footer.css';
 import { Link } from "react-router-dom";
 import { BrowserRouter as Route } from "react-router-dom";
-import fbicon from "../icons/fbicon.png";
-import visaicon from "../icons/visaicon.png";
-import mastercardicon from "../icons/mastercardicon.png";
-import bogicon from "../icons/bogicon.png";
+import fbicon from "../icons/fbicon.jpg";
+import smartphone from "../icons/smartphone.svg";
+import caaash from "../icons/caaash.png";
+// import visaicon from "../icons/visaicon.png";
+// import mastercardicon from "../icons/mastercardicon.png";
+// import bogicon from "../icons/bogicon.png";
 
 const Footer = () => {
     return (
@@ -19,15 +21,16 @@ const Footer = () => {
                             <img className="fbicon" src={fbicon} alt="" ></img>
                         </Link>
                     </Route>
-                    <div id="fb-root"></div>
                     </div>
                 </div> 
                  <div className="pay">
                     <h3>გადახდის მეთოდები</h3>
                     <div className="pay_icon">
-                        <img className="visaicon" src={visaicon} alt=""></img>
+                        {/* <img className="visaicon" src={visaicon} alt=""></img>
                         <img className="mastercardicon" src={mastercardicon} alt=""></img>
-                        <img className="bogicon" src={bogicon} alt=""></img>
+                        <img className="bogicon" src={bogicon} alt=""></img> */}
+                        <img className="bogicon" src={caaash} alt=""></img>
+                        <img className="bogicon" src={smartphone} alt=""></img>
                     </div>
                 </div>
                 <div className="kontakt">

@@ -3,18 +3,11 @@ import { Link } from "react-router-dom";
 import './header.css';
 import api from "../server_api/api";
 import shopicon from "../icons/shopicon.jpg";
+import searchicon from "../icons/searchicon.png";
+import { BsSearch } from 'react-icons/bs';
+// import { useHistory } from "react-router-dom";
 
 const Header = (props) => {
-    // const [cnt, setcnt] = useState();
-    // const shopping = async () => {
-    //     const resp = await api.get("/basket", { params: { basket_title: localStorage.getItem("basket_title") } } );
-    //     console.log(resp);
-    //     setcnt(resp.data.basket.products.length);
-    // }
-
-    // useEffect( () => { 
-    //     shopping(); 
-    // },[]);
 
     const [username, setusername] = useState();
     const Username = (val) => {
@@ -59,39 +52,36 @@ const Header = (props) => {
             document.getElementById("user").value="";
             document.getElementById("pass").value="";
             document.getElementById("shenishvna").textContent = ""; 
-            // console.log(document.getElementsByTagName("body"))
-            // document.getElementsByTagName("body").style.overflow = "hidden";
         }
     }
 
     const signout = async () => {
-        // const response = await 
         api.post("/logout", {}, {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}});
-        // console.log(response);
-        // const response2 = await 
         api.post("/logout2", {}, {headers: {Authorization: "Bearer " + localStorage.getItem("refresh_token")}});
-        // console.log(response2);
-        // Sales();
      };
 
         const re = async () => {
             
         await api.get("/profile", {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}})
         .then(response => {
-            // console.log(response.data);
             localStorage.setItem("status", response.data.permission);
-            // let permission
+            // props.setuser_status(response.data.permission);
+            console.log(response)
             let name = response.data.name;
             document.getElementById("signd").style.animationName = "";
             document.getElementById("signin").textContent = name;
             document.getElementById("registr").textContent="გასვლა";
 
             if(localStorage.getItem("status") === "courier"){
-               document.getElementById("shekvetebi_button").style.visibility = "visible";
+            //    document.getElementById("shekvetebi_button").style.visibility = "visible";
+            document.getElementById("shekvetebi_button").style.visibility = "visible";
+            document.getElementById("shekvetebi_button").style.position = "static";
             }
            
            if(localStorage.getItem("status") === "admin"){
+            // document.getElementById("shekvetebi_button").style.visibility = "visible";
             document.getElementById("shekvetebi_button").style.visibility = "visible";
+            document.getElementById("shekvetebi_button").style.position = "static";
             document.getElementById("add").style.visibility = "visible";
             document.getElementById("daamate_curierad").style.visibility = "visible";
             document.getElementById("daamate_kurieri").style.visibility = "visible";
@@ -99,8 +89,8 @@ const Header = (props) => {
         }
         })
         .catch(error => {
-            // console.log(error.response);
-            
+            console.log(error.response);
+            localStorage.setItem("status", "");
         }); 
            
     }
@@ -116,31 +106,10 @@ const Header = (props) => {
             signout();
             localStorage.setItem("access_token", "");
             localStorage.setItem("status", "");
+            // props.setuser_status("user");
             document.getElementById("shekvetebi_button").style.visibility = "hidden";
+            document.getElementById("shekvetebi_button").style.position = "absolute";
             document.getElementById("add").style.visibility = "hidden";
-            // document.getElementById("update").style.visibility = "hidden";
-            
-            // document.getElementById("daamate_curierad").style.visibility = "hidden";
-            // document.getElementById("daamate_fasdakleba").style.visibility = "hidden";
-            // document.getElementById("airchie_fasdakleba").style.visibility = "hidden";
-            // document.getElementById("update").style.visibility = "hidden";
-            // document.getElementById("delete").style.visibility = "hidden";
-
-            // if(localStorage.getItem("status") === "admin"){
-            //     let ko = document.getElementsByClassName("daamate_kurieri").length;
-            // while (ko--){
-            //     document.getElementsByClassName("daamate_kurieri")[ko].style.visibility = "visible";
-            //     console.log(ko);
-            // }   
-
-            // if(localStorage.getItem("status") === "admin"){
-            //     let ki = document.getElementsByClassName("qalaqi").length;
-            // while (ki--){
-            //     document.getElementsByClassName("qalaqi")[ki].style.visibility = "visible";
-            //     console.log(ki);
-            // }   
-        // }
-        // }
 
         }else{
             document.getElementById("registrshenishvna").textContent = "";
@@ -155,10 +124,12 @@ const Header = (props) => {
     }
 
     const add = async () => {
+        
         await api.post("/register", {name, surname, email, telephone, password})
         .then(response => {
                 // document.getElementById("registrshenishvna").textContent = "";
                 // document.getElementById("registrshenishvna").style.color = "";
+                document.getElementById("regist").style.animationName="";
                 console.log(response);
         })
         .catch(error => {
@@ -185,6 +156,7 @@ const Header = (props) => {
             localStorage.setItem("refresh_token", response.data.refresh_token);
             // console.log(response);
             localStorage.setItem("status", response.data.user.permission);
+            // props.setuser_status(response.data.user.permission)
             // let v = response.data.user.permission;
             // status(v);
             // document.getElementById("add").style.visibility = "visible";
@@ -194,11 +166,15 @@ const Header = (props) => {
             document.getElementById("registr").textContent="გასვლა";
             if(localStorage.getItem("status") === "courier"){
                 document.getElementById("shekvetebi_button").style.visibility = "visible";
+                document.getElementById("shekvetebi_button").style.position = "static";
+                // document.getElementById("shekvetebi_button").style.display = "flex";
                 // console.log("gio")
              }
             
             if(localStorage.getItem("status") === "admin"){
              document.getElementById("shekvetebi_button").style.visibility = "visible";
+             document.getElementById("shekvetebi_button").style.position = "static";
+            // document.getElementById("shekvetebi_button").style.display = "flex";
              document.getElementById("add").style.visibility = "visible";
             //  document.getElementById("daamate_curierad").style.visibility = "visible";
             //  document.getElementById("daamate_kurieri").style.visibility = "visible";
@@ -225,14 +201,48 @@ const Header = (props) => {
         document.getElementById("regist").style.animationName="";
     }
 
-    // if(props.cnt === 0){
-    //     document.getElementById("shoppiconeint").style.visibility = "hidden";
-    //     // console.log(1)
-    // }else{
-    //     // console.log(2)
-    //     document.getElementById("shoppiconeint").style.display = "visible";
+    // const history = useHistory();
+    // const handleClick = (path) => {
+    //     if(isNaN(path))
+    //         return;
+    //     history.push(path);
     // }
-    // console.log(props.cnt)
+
+    const [serch, setserch] = useState([]);
+
+    const search = async (value) => {
+        // console.log(value.target.value);
+        if(value.target.value.length === 0){
+            setserch([]);
+            return
+        }
+        const response = await api.get("/products/search?title="+value.target.value, {headers: {Authorization: "Bearer " + localStorage.getItem("access_token")}})
+        console.log(response);
+        setserch(response.data.products);
+    }
+
+    // useEffect( () => { 
+    //     serch_map(); 
+    // },);
+
+   
+
+    const serch_map = serch.map((value, index) => {
+        console.log(value)
+        return(
+            <ul className="serch_list" >
+                <Link className="serch_li" to={`/product/${value.id}`} style={{textDecoration:"none"}} onClick={() => {document.getElementById("serch_inpu").value = ""; setserch([])}} >
+                   <li  key={"search"+index} style={{alignItems:"center", display:"flex" }} >
+                    <img src={value.images[0].img} style={{width:"40px", height:"40px"}} />
+                    <div>
+                        {value.title} {value.size}
+                    </div>
+                </li> 
+                </Link>
+                
+            </ul>
+        )
+    })
 
     return (
         <Fragment>
@@ -240,14 +250,27 @@ const Header = (props) => {
                 <div className="header_top">
                     <Link to="/" className="headertitle" onClick={props.onad}>MEDICAL-BASE</Link>
                     <div className="shop_icn">
-                        <Link to="/shop"  ><img className="shop_icon" src={shopicon} alt=""/></Link>
+                        {/* <div onClick={() => handleClick(props.cnt > 0 ? "/shop" : NaN)}>
+                            <img className="shop_icon" src={shopicon} alt=""/>
+                        </div> */}
+                        <Link to="/shop" >
+                            <img className="shop_icon" src={shopicon} alt=""/>
+                        </Link>
                         <div id="shoppiconeint" className="shoppiconn" >{props.cnt}</div>
                     </div>
                     
                     <Link to="/couriers" className="courierbut" >კონტაქტი</Link>
                 </div>
-                <div className="header_down">
-                    <Link to="/shekveta" className="courierbut" id="shekvetebi_button">შეკვეთები</Link>
+                <div className="header_down" >
+                    <Link to="/shekveta" className="courierbut" style={{position:"absolute", width:"min-content", marginLeft:"auto", marginRight:"auto"}} id="shekvetebi_button" >შეკვეთები</Link>
+                    
+                    <div >
+                       <input className="inpu" id="serch_inpu" placeholder="ძიება" onChange={search} /> 
+                       <div className="search_list" >
+                           {serch_map }
+                       </div>
+                    </div>
+
                     <div id="signin" className="signin" onClick={sign}>ავტორიზაცია</div>
                     <div id="registr" className="registr" onClick={registracia}>რეგისტრაცია</div>
                 </div>
